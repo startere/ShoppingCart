@@ -83,71 +83,71 @@ ShoppingCart
 
 Solution template
 
-function solve(){
-    class Product{
-        /* .... */
-    }
-
-    class ShoppingCart {
-        /* .... */
-    }
-    return {
-        Product, ShoppingCart
-    };
-}
-
+     function solve(){
+         class Product{
+             /* .... */
+         }
+     
+         class ShoppingCart {
+             /* .... */
+         }
+         return {
+             Product, ShoppingCart
+         };
+     }
+     
 Example usage:
+     
+     let {Product, ShoppingCart} = solve();
+     
+     let cart = new ShoppingCart();
+     
+     let pr1 = new Product("Sweets", "Shokolad Milka", 2);
+     cart.add(pr1);
+     console.log(cart.showCost());
+     //prints `2`
 
-let {Product, ShoppingCart} = solve();
-
-let cart = new ShoppingCart();
-
-let pr1 = new Product("Sweets", "Shokolad Milka", 2);
-cart.add(pr1);
-console.log(cart.showCost());
-//prints `2`
-
-let pr2 = new Product("Groceries", "Salad", 0.5);
-cart.add(pr2);
-cart.add(pr2);
-console.log(cart.showCost());
-//prints `3`
-
-console.log(cart.showProductTypes());
-//prints ["Sweets", "Groceries"]
-
-console.log(cart.getInfo());
-/* prints
-{
-    totalPrice: 3
-    products: [{
-        name: "Salad",
-        totalPrice: 1,
-        quantity: 2
-    }, {
-       name: "Shokolad Milka",
-       totalPrice: 2,
-       quantity: 1 
-    }]
-}
-*/
-
-cart.remove({name:"salad", productType: "Groceries", price: 0.5})
-//throws: "salad" is not equal to "Salad"
-
-cart.remove({name:"Salad", productType: "Groceries", price: 0.5})
-console.log(cart.getInfo());
-/* prints
-{
-    totalPrice: 2.5
-    products: [{
-        name: "Salad",
-        totalPrice: 0.5,
-        quantity: 1
-    }, {
-       name: "Shokolad Milka",
-       totalPrice: 2,
-       quantity: 1 
-    }]
-}
-*/
+     let pr2 = new Product("Groceries", "Salad", 0.5);
+     cart.add(pr2);
+     cart.add(pr2);
+     console.log(cart.showCost());
+     //prints `3`
+     
+     console.log(cart.showProductTypes());
+     //prints ["Sweets", "Groceries"]
+     
+     console.log(cart.getInfo());
+     /* prints
+     {
+         totalPrice: 3
+         products: [{
+             name: "Salad",
+             totalPrice: 1,
+             quantity: 2
+         }, {
+            name: "Shokolad Milka",
+            totalPrice: 2,
+            quantity: 1 
+         }]
+     }
+     */
+     
+     cart.remove({name:"salad", productType: "Groceries", price: 0.5})
+     //throws: "salad" is not equal to "Salad"
+     
+     cart.remove({name:"Salad", productType: "Groceries", price: 0.5})
+     console.log(cart.getInfo());
+     /* prints
+     {
+         totalPrice: 2.5
+         products: [{
+             name: "Salad",
+             totalPrice: 0.5,
+             quantity: 1
+         }, {
+            name: "Shokolad Milka",
+            totalPrice: 2,
+            quantity: 1 
+         }]
+     }
+     */
